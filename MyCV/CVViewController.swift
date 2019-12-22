@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CVViewController.swift
 //  MyCV
 //
 //  Created by Chenguo Yan on 2019-12-22.
@@ -8,13 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CVViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.green
+
         // Do any additional setup after loading the view.
     }
-
+    
 
 }
-

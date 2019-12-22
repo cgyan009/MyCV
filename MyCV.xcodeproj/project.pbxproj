@@ -8,13 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		DE38458B23B0026400E69515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38458A23B0026400E69515 /* AppDelegate.swift */; };
-		DE38458D23B0026400E69515 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38458C23B0026400E69515 /* SceneDelegate.swift */; };
-		DE38458F23B0026400E69515 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38458E23B0026400E69515 /* ViewController.swift */; };
-		DE38459223B0026400E69515 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE38459023B0026400E69515 /* Main.storyboard */; };
 		DE38459423B0026600E69515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE38459323B0026600E69515 /* Assets.xcassets */; };
-		DE38459723B0026600E69515 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE38459523B0026600E69515 /* LaunchScreen.storyboard */; };
 		DE3845A223B0026700E69515 /* MyCVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3845A123B0026700E69515 /* MyCVTests.swift */; };
 		DE3845AD23B0026700E69515 /* MyCVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3845AC23B0026700E69515 /* MyCVUITests.swift */; };
+		DE3845BB23B0034A00E69515 /* CVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3845BA23B0034A00E69515 /* CVViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +34,7 @@
 /* Begin PBXFileReference section */
 		DE38458723B0026400E69515 /* MyCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE38458A23B0026400E69515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE38458C23B0026400E69515 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DE38458E23B0026400E69515 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DE38459123B0026400E69515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE38459323B0026600E69515 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DE38459623B0026600E69515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE38459823B0026600E69515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE38459D23B0026700E69515 /* MyCVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3845A123B0026700E69515 /* MyCVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCVTests.swift; sourceTree = "<group>"; };
@@ -49,6 +42,7 @@
 		DE3845A823B0026700E69515 /* MyCVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3845AC23B0026700E69515 /* MyCVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCVUITests.swift; sourceTree = "<group>"; };
 		DE3845AE23B0026700E69515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE3845BA23B0034A00E69515 /* CVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +94,9 @@
 			isa = PBXGroup;
 			children = (
 				DE38458A23B0026400E69515 /* AppDelegate.swift */,
-				DE38458C23B0026400E69515 /* SceneDelegate.swift */,
-				DE38458E23B0026400E69515 /* ViewController.swift */,
-				DE38459023B0026400E69515 /* Main.storyboard */,
 				DE38459323B0026600E69515 /* Assets.xcassets */,
-				DE38459523B0026600E69515 /* LaunchScreen.storyboard */,
 				DE38459823B0026600E69515 /* Info.plist */,
+				DE3845BA23B0034A00E69515 /* CVViewController.swift */,
 			);
 			path = MyCV;
 			sourceTree = "<group>";
@@ -232,9 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE38459723B0026600E69515 /* LaunchScreen.storyboard in Resources */,
 				DE38459423B0026600E69515 /* Assets.xcassets in Resources */,
-				DE38459223B0026400E69515 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +248,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE38458F23B0026400E69515 /* ViewController.swift in Sources */,
+				DE3845BB23B0034A00E69515 /* CVViewController.swift in Sources */,
 				DE38458B23B0026400E69515 /* AppDelegate.swift in Sources */,
-				DE38458D23B0026400E69515 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,25 +283,6 @@
 			targetProxy = DE3845A923B0026700E69515 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		DE38459023B0026400E69515 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DE38459123B0026400E69515 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DE38459523B0026600E69515 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DE38459623B0026600E69515 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DE3845AF23B0026700E69515 /* Debug */ = {
@@ -443,7 +412,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cg.yan.MyCV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -461,7 +430,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cg.yan.MyCV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
