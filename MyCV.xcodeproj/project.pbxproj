@@ -12,6 +12,10 @@
 		DE3845A223B0026700E69515 /* MyCVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3845A123B0026700E69515 /* MyCVTests.swift */; };
 		DE3845AD23B0026700E69515 /* MyCVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3845AC23B0026700E69515 /* MyCVUITests.swift */; };
 		DE3845BB23B0034A00E69515 /* CVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3845BA23B0034A00E69515 /* CVViewController.swift */; };
+		DEC63EA523B2A04D00DCCF1A /* MockCVApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC63EA423B2A04D00DCCF1A /* MockCVApi.swift */; };
+		DEC63EA823B2A0E500DCCF1A /* CVFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC63EA723B2A0E500DCCF1A /* CVFetchable.swift */; };
+		DEC63EAB23B2A14A00DCCF1A /* MyCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC63EAA23B2A14A00DCCF1A /* MyCV.swift */; };
+		DEC63EAD23B2A24700DCCF1A /* CVSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC63EAC23B2A24700DCCF1A /* CVSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,10 @@
 		DE3845AC23B0026700E69515 /* MyCVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCVUITests.swift; sourceTree = "<group>"; };
 		DE3845AE23B0026700E69515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE3845BA23B0034A00E69515 /* CVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVViewController.swift; sourceTree = "<group>"; };
+		DEC63EA423B2A04D00DCCF1A /* MockCVApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCVApi.swift; sourceTree = "<group>"; };
+		DEC63EA723B2A0E500DCCF1A /* CVFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVFetchable.swift; sourceTree = "<group>"; };
+		DEC63EAA23B2A14A00DCCF1A /* MyCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCV.swift; sourceTree = "<group>"; };
+		DEC63EAC23B2A24700DCCF1A /* CVSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +101,8 @@
 		DE38458923B0026400E69515 /* MyCV */ = {
 			isa = PBXGroup;
 			children = (
+				DEC63EA923B2A10600DCCF1A /* Models */,
+				DEC63EA623B2A0B300DCCF1A /* Protocols */,
 				DE38458A23B0026400E69515 /* AppDelegate.swift */,
 				DE38459323B0026600E69515 /* Assets.xcassets */,
 				DE38459823B0026600E69515 /* Info.plist */,
@@ -106,6 +116,7 @@
 			children = (
 				DE3845A123B0026700E69515 /* MyCVTests.swift */,
 				DE3845A323B0026700E69515 /* Info.plist */,
+				DEC63EA423B2A04D00DCCF1A /* MockCVApi.swift */,
 			);
 			path = MyCVTests;
 			sourceTree = "<group>";
@@ -117,6 +128,23 @@
 				DE3845AE23B0026700E69515 /* Info.plist */,
 			);
 			path = MyCVUITests;
+			sourceTree = "<group>";
+		};
+		DEC63EA623B2A0B300DCCF1A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DEC63EA723B2A0E500DCCF1A /* CVFetchable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DEC63EA923B2A10600DCCF1A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DEC63EAA23B2A14A00DCCF1A /* MyCV.swift */,
+				DEC63EAC23B2A24700DCCF1A /* CVSection.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEC63EAB23B2A14A00DCCF1A /* MyCV.swift in Sources */,
+				DEC63EA823B2A0E500DCCF1A /* CVFetchable.swift in Sources */,
 				DE3845BB23B0034A00E69515 /* CVViewController.swift in Sources */,
+				DEC63EAD23B2A24700DCCF1A /* CVSection.swift in Sources */,
 				DE38458B23B0026400E69515 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3845A223B0026700E69515 /* MyCVTests.swift in Sources */,
+				DEC63EA523B2A04D00DCCF1A /* MockCVApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
