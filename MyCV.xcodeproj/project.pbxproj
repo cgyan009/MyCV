@@ -86,14 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DE26768F23B3B7D900F2F102 /* Views */ = {
+		DE26768F23B3B7D900F2F102 /* Views and ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				DE3845BA23B0034A00E69515 /* CVViewController.swift */,
 				DE26769323B3D92100F2F102 /* BasicInfoView.swift */,
 				DE26769523B3D9EB00F2F102 /* UIView+SafeAnchor.swift */,
 			);
-			path = Views;
+			path = "Views and ViewControllers";
 			sourceTree = "<group>";
 		};
 		DE26769023B3B7EE00F2F102 /* ViewModels */ = {
@@ -137,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				DEC63EA923B2A10600DCCF1A /* Models */,
-				DE26768F23B3B7D900F2F102 /* Views */,
+				DE26768F23B3B7D900F2F102 /* Views and ViewControllers */,
 				DE26769023B3B7EE00F2F102 /* ViewModels */,
 				DEC63EA623B2A0B300DCCF1A /* Protocols */,
 				DE26769723B3F6AF00F2F102 /* Supporting Files */,

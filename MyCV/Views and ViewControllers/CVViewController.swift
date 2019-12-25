@@ -39,7 +39,8 @@ extension CVViewController {
             cvData = receivedCV.cvSections
             cvTable?.reloadData()
         } else {
-            setupErrorView()
+            let error = notification.userInfo?["cv"] as? Error
+            setupErrorView(error: error)
         }
     }
 }
@@ -85,12 +86,17 @@ extension CVViewController {
         }
     }
     
-    private func setupErrorView() {
-        
+    private func setupErrorView(error: Error?) {
+        let unknownErrorMessage = "Unknown error"
         cvBasicInfoView?.removeFromSuperview()
         cvTable?.removeFromSuperview()
         let errorLabel = UILabel()
-        errorLabel.text = "Network error"
+        
+        if let error = error {
+            errorLabel.text = error.localizedDescription
+        } else {
+            errorLabel.text = unknownErrorMessage
+        }
         
         view.addSubview(errorLabel)
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
