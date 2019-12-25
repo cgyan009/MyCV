@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE26769223B3B97800F2F102 /* MyCVViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26769123B3B97800F2F102 /* MyCVViewModel.swift */; };
+		DE26769423B3D92100F2F102 /* BasicInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26769323B3D92100F2F102 /* BasicInfoView.swift */; };
+		DE26769623B3D9EB00F2F102 /* UIView+SafeAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26769523B3D9EB00F2F102 /* UIView+SafeAnchor.swift */; };
 		DE38458B23B0026400E69515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE38458A23B0026400E69515 /* AppDelegate.swift */; };
 		DE38459423B0026600E69515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE38459323B0026600E69515 /* Assets.xcassets */; };
 		DE3845A223B0026700E69515 /* MyCVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3845A123B0026700E69515 /* MyCVTests.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE26769123B3B97800F2F102 /* MyCVViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCVViewModel.swift; sourceTree = "<group>"; };
+		DE26769323B3D92100F2F102 /* BasicInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoView.swift; sourceTree = "<group>"; };
+		DE26769523B3D9EB00F2F102 /* UIView+SafeAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SafeAnchor.swift"; sourceTree = "<group>"; };
 		DE38458723B0026400E69515 /* MyCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE38458A23B0026400E69515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE38459323B0026600E69515 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +86,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE26768F23B3B7D900F2F102 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE26769323B3D92100F2F102 /* BasicInfoView.swift */,
+				DE26769523B3D9EB00F2F102 /* UIView+SafeAnchor.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE26769023B3B7EE00F2F102 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DE26769123B3B97800F2F102 /* MyCVViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		DE38457E23B0026400E69515 = {
 			isa = PBXGroup;
 			children = (
@@ -103,8 +126,10 @@
 		DE38458923B0026400E69515 /* MyCV */ = {
 			isa = PBXGroup;
 			children = (
-				DEC63EB223B2B87B00DCCF1A /* Api */,
 				DEC63EA923B2A10600DCCF1A /* Models */,
+				DE26768F23B3B7D900F2F102 /* Views */,
+				DE26769023B3B7EE00F2F102 /* ViewModels */,
+				DEC63EB223B2B87B00DCCF1A /* Api */,
 				DEC63EA623B2A0B300DCCF1A /* Protocols */,
 				DE38458A23B0026400E69515 /* AppDelegate.swift */,
 				DE38459323B0026600E69515 /* Assets.xcassets */,
@@ -299,8 +324,11 @@
 				DEC63EA823B2A0E500DCCF1A /* CVFetchable.swift in Sources */,
 				DE3845BB23B0034A00E69515 /* CVViewController.swift in Sources */,
 				DEC63EAD23B2A24700DCCF1A /* CVSection.swift in Sources */,
+				DE26769223B3B97800F2F102 /* MyCVViewModel.swift in Sources */,
 				DE38458B23B0026400E69515 /* AppDelegate.swift in Sources */,
 				DEC63EB123B2B86D00DCCF1A /* BaseApi.swift in Sources */,
+				DE26769423B3D92100F2F102 /* BasicInfoView.swift in Sources */,
+				DE26769623B3D9EB00F2F102 /* UIView+SafeAnchor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

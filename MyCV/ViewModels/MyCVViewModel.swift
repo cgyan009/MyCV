@@ -33,7 +33,7 @@ class MyCVViewModel {
                     DispatchQueue.main.async {
                         NotificationCenter.default.post(name: Notification.Name(cvIsReadyNotification),
                                                         object: nil,
-                                                        userInfo: ["CV": cv])
+                                                        userInfo: ["cv": cv])
                     }
                     
                 } catch {
@@ -47,7 +47,7 @@ class MyCVViewModel {
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: Notification.Name(cvIsReadyNotification),
                                             object: nil,
-                                            userInfo: ["CV": error])
+                                            userInfo: ["cv": error])
         }
     }
 }
