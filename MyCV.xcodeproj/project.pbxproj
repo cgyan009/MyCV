@@ -16,6 +16,7 @@
 		DEC63EA823B2A0E500DCCF1A /* CVFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC63EA723B2A0E500DCCF1A /* CVFetchable.swift */; };
 		DEC63EAB23B2A14A00DCCF1A /* MyCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC63EAA23B2A14A00DCCF1A /* MyCV.swift */; };
 		DEC63EAD23B2A24700DCCF1A /* CVSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC63EAC23B2A24700DCCF1A /* CVSection.swift */; };
+		DEC63EB123B2B86D00DCCF1A /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC63EB023B2B86D00DCCF1A /* BaseApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		DEC63EA723B2A0E500DCCF1A /* CVFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVFetchable.swift; sourceTree = "<group>"; };
 		DEC63EAA23B2A14A00DCCF1A /* MyCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCV.swift; sourceTree = "<group>"; };
 		DEC63EAC23B2A24700DCCF1A /* CVSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVSection.swift; sourceTree = "<group>"; };
+		DEC63EB023B2B86D00DCCF1A /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		DE38458923B0026400E69515 /* MyCV */ = {
 			isa = PBXGroup;
 			children = (
+				DEC63EB223B2B87B00DCCF1A /* Api */,
 				DEC63EA923B2A10600DCCF1A /* Models */,
 				DEC63EA623B2A0B300DCCF1A /* Protocols */,
 				DE38458A23B0026400E69515 /* AppDelegate.swift */,
@@ -114,9 +117,9 @@
 		DE3845A023B0026700E69515 /* MyCVTests */ = {
 			isa = PBXGroup;
 			children = (
+				DEC63EAF23B2B82900DCCF1A /* Mocks */,
 				DE3845A123B0026700E69515 /* MyCVTests.swift */,
 				DE3845A323B0026700E69515 /* Info.plist */,
-				DEC63EA423B2A04D00DCCF1A /* MockCVApi.swift */,
 			);
 			path = MyCVTests;
 			sourceTree = "<group>";
@@ -145,6 +148,22 @@
 				DEC63EAC23B2A24700DCCF1A /* CVSection.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DEC63EAF23B2B82900DCCF1A /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				DEC63EA423B2A04D00DCCF1A /* MockCVApi.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		DEC63EB223B2B87B00DCCF1A /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				DEC63EB023B2B86D00DCCF1A /* BaseApi.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +300,7 @@
 				DE3845BB23B0034A00E69515 /* CVViewController.swift in Sources */,
 				DEC63EAD23B2A24700DCCF1A /* CVSection.swift in Sources */,
 				DE38458B23B0026400E69515 /* AppDelegate.swift in Sources */,
+				DEC63EB123B2B86D00DCCF1A /* BaseApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
