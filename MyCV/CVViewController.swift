@@ -16,6 +16,8 @@ class CVViewController: UIViewController {
     private var cv: MyCV?
     private lazy var myCVViewModel = MyCVViewModel(api: BaseApi())
     private var cvBasicInfoView: BasicInfoView?
+    ///data source of `cvTable`
+    private var cvData = [(String,[CVSectionProtocol])]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +29,14 @@ class CVViewController: UIViewController {
     }
 }
 
+/// handle notification from `NotificationCenter`
 extension CVViewController {
     
     @objc func handleNotification(notification: Notification) {
         if let receivedCV = notification.userInfo?["cv"] as? MyCV {
             cv = receivedCV
             cvBasicInfoView?.cv = cv
+            cvData = receivedCV.cvSections
             cvTable?.reloadData()
         } else {
             setupErrorView()
@@ -40,15 +44,21 @@ extension CVViewController {
     }
 }
 
-//setup UI
+///setup UI
 extension CVViewController {
     private func setupUI() {
         
         view.backgroundColor = UIColor.white
         
         setupBasicInfoView()
+        
+        cvTable = UITableView(frame: CGRect.zero, style: .plain)
+        cvTable?.delegate = self
+        cvTable?.dataSource = self
+        cvTable?.register(UITableViewCell.self, forCellReuseIdentifier: cvCellId)
+        
+        setupCVTable()
     }
-    
     
     private func setupBasicInfoView() {
         
@@ -62,7 +72,21 @@ extension CVViewController {
         cvBasicInfoView?.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.2).isActive = true
     }
     
+    private func setupCVTable() {
+        
+        if let table = cvTable,
+            let basicInfoView = cvBasicInfoView {
+            view.addSubview(table)
+            table.translatesAutoresizingMaskIntoConstraints = false
+            table.topAnchor.constraint(equalTo: basicInfoView.bottomAnchor).isActive = true
+            table.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            table.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            table.bottomAnchor.constraint(equalTo: view.safeBottomAnchor).isActive = true
+        }
+    }
+    
     private func setupErrorView() {
+        
         cvBasicInfoView?.removeFromSuperview()
         cvTable?.removeFromSuperview()
         let errorLabel = UILabel()
@@ -74,7 +98,34 @@ extension CVViewController {
             errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             errorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
-        
     }
 }
 
+/// implement UITableView data source and delegate
+extension CVViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //get the total section number from the tuples
+        let (_, cvSections) = cvData[section]
+        return cvSections.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        //get section name from the tuples
+        let (sectionName, _) = cvData[section]
+        return sectionName
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return cvData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cvCellId, for: indexPath)
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = .byWordWrapping
+        cell.textLabel?.text = cvData[indexPath.section].1[indexPath.row].toString()
+        
+        return cell
+    }
+}

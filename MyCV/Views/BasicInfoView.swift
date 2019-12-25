@@ -25,13 +25,13 @@ class BasicInfoView: UIView {
         super.init(frame: frame)
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
 extension BasicInfoView {
+    
     private func setupUI() {
         guard let cv = cv else {
             return
