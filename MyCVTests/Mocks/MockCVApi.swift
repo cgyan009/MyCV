@@ -9,11 +9,9 @@
 import Foundation
 @testable import MyCV
 
-
 class MockCVApi {
-    var shouldReturnError = false
-    var fetchCVWasCalled = false
     
+    var shouldReturnError = false
     let mockedCV: [String: Any] = [
         "basics": [
             "name": "Bill Smith",
@@ -93,10 +91,6 @@ class MockCVApi {
     enum MockServiceError: Error {
         case fetchCV
     }
-    func reset() {
-        shouldReturnError = false
-        fetchCVWasCalled = false
-    }
     
     convenience init() {
         self.init(false)
@@ -109,7 +103,6 @@ class MockCVApi {
 
 extension MockCVApi: CVFetchable {
     func fetchCV(completion: @escaping (dictionary?, Error?) -> Void) {
-        fetchCVWasCalled = true
         if shouldReturnError {
             completion(nil, MockServiceError.fetchCV)
         } else {
