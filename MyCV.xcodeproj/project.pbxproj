@@ -89,6 +89,7 @@
 		DE26768F23B3B7D900F2F102 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE3845BA23B0034A00E69515 /* CVViewController.swift */,
 				DE26769323B3D92100F2F102 /* BasicInfoView.swift */,
 				DE26769523B3D9EB00F2F102 /* UIView+SafeAnchor.swift */,
 			);
@@ -101,6 +102,15 @@
 				DE26769123B3B97800F2F102 /* MyCVViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DE26769723B3F6AF00F2F102 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE38458A23B0026400E69515 /* AppDelegate.swift */,
+				DE38459323B0026600E69515 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		DE38457E23B0026400E69515 = {
@@ -129,12 +139,10 @@
 				DEC63EA923B2A10600DCCF1A /* Models */,
 				DE26768F23B3B7D900F2F102 /* Views */,
 				DE26769023B3B7EE00F2F102 /* ViewModels */,
-				DEC63EB223B2B87B00DCCF1A /* Api */,
 				DEC63EA623B2A0B300DCCF1A /* Protocols */,
-				DE38458A23B0026400E69515 /* AppDelegate.swift */,
-				DE38459323B0026600E69515 /* Assets.xcassets */,
+				DE26769723B3F6AF00F2F102 /* Supporting Files */,
+				DEC63EB223B2B87B00DCCF1A /* Api */,
 				DE38459823B0026600E69515 /* Info.plist */,
-				DE3845BA23B0034A00E69515 /* CVViewController.swift */,
 			);
 			path = MyCV;
 			sourceTree = "<group>";
