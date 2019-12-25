@@ -15,6 +15,12 @@ class BasicInfoView: UIView {
     private lazy var websiteLabel = UILabel()
     private lazy var locationLabel = UILabel()
     private lazy var imageView = UIImageView()
+    
+    private let insetConstant: CGFloat = 6.0
+    private let distanceToImageView: CGFloat = 12.0
+    private let nameFontSize: CGFloat = 24.0
+    private let contentFontSize: CGFloat = 18.0
+    
     var cv: MyCV? {
         didSet {
             setNeedsLayout()
@@ -30,6 +36,7 @@ class BasicInfoView: UIView {
     }
 }
 
+///setup UI
 extension BasicInfoView {
     
     private func setupUI() {
@@ -58,32 +65,42 @@ extension BasicInfoView {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: self.bounds.height).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: self.bounds.height).isActive = true
+        NSLayoutConstraint.activate([
+            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: insetConstant),
+            imageView.widthAnchor.constraint(equalToConstant: self.bounds.height),
+            imageView.heightAnchor.constraint(equalToConstant: self.bounds.height)
+        ])
         
         nameLabel.text = cv.basics.name
-        nameLabel.font = .systemFont(ofSize: 24)
-        nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 6).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 6).isActive = true
+        nameLabel.font = .systemFont(ofSize: nameFontSize)
+        NSLayoutConstraint.activate([
+            nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: distanceToImageView),
+            nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: insetConstant)
+        ])
         
         emailLabel.text = "email: \(cv.basics.email)"
-        emailLabel.font = .systemFont(ofSize: 18)
-        emailLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 12).isActive = true
-        emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 6).isActive = true
+        emailLabel.font = .systemFont(ofSize: contentFontSize)
+        NSLayoutConstraint.activate([
+            emailLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: distanceToImageView),
+            emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: insetConstant)
+        ])
         
         websiteLabel.text = "website: \(cv.basics.website)"
-        websiteLabel.font = .systemFont(ofSize: 18)
-        websiteLabel.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor).isActive = true
-        websiteLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 6).isActive = true
-        
+        websiteLabel.font = .systemFont(ofSize: contentFontSize)
+        NSLayoutConstraint.activate([
+            websiteLabel.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
+            websiteLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: insetConstant)
+        ])
+    
         locationLabel.text = cv.basics.location.toString()
         locationLabel.sizeToFit()
         locationLabel.lineBreakMode = .byWordWrapping
         locationLabel.numberOfLines = 0
-        locationLabel.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor).isActive = true
-        locationLabel.topAnchor.constraint(equalTo: websiteLabel.bottomAnchor, constant: 6).isActive = true
+        NSLayoutConstraint.activate([
+            locationLabel.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
+            locationLabel.topAnchor.constraint(equalTo: websiteLabel.bottomAnchor, constant: insetConstant)
+        ])
         
     }
     
