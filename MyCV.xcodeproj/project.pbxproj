@@ -169,6 +169,7 @@
 		DEC63EA623B2A0B300DCCF1A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				DEC63EAC23B2A24700DCCF1A /* CVSection.swift */,
 				DEC63EA723B2A0E500DCCF1A /* CVFetchable.swift */,
 			);
 			path = Protocols;
@@ -178,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				DEC63EAA23B2A14A00DCCF1A /* MyCV.swift */,
-				DEC63EAC23B2A24700DCCF1A /* CVSection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
