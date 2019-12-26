@@ -22,17 +22,24 @@ class CVViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        NotificationCenter.default.addObserver(self,selector: #selector(handleNotification(notification:)),
-                                               name: Notification.Name.cvNotification,
-                                               object: nil)
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.cvNotification,
+                                               object: nil,
+                                               queue: nil) {[weak self] (notification) in
+                                                self?.handleNotification(notification: notification)
+        }
+        
         myCVViewModel.decodeCV()
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
 /// handle notification from `NotificationCenter`
 extension CVViewController {
     
-    @objc func handleNotification(notification: Notification) {
+    private func handleNotification(notification: Notification) {
         if let cv = notification.object as? MyCV {
             cvBasicInfoView?.cv = cv
             cvData = cv.sections
