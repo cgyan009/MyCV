@@ -23,7 +23,7 @@ class CVViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         NotificationCenter.default.addObserver(self,selector: #selector(handleNotification(notification:)),
-                                               name: NSNotification.Name(cvIsReadyNotification),
+                                               name: Notification.Name.cvNotification,
                                                object: nil)
         myCVViewModel.decodeCV()
     }
@@ -33,10 +33,9 @@ class CVViewController: UIViewController {
 extension CVViewController {
     
     @objc func handleNotification(notification: Notification) {
-        if let receivedCV = notification.userInfo?["cv"] as? MyCV {
-            cv = receivedCV
+        if let cv = notification.object as? MyCV {
             cvBasicInfoView?.cv = cv
-            cvData = receivedCV.cvSections
+            cvData = cv.sections
             cvTable?.reloadData()
         } else {
             let error = notification.userInfo?["cv"] as? Error

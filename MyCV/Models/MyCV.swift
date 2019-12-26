@@ -18,7 +18,7 @@ struct MyCV: Decodable {
     let skills: [Skill]
     let languages: [Language]
     
-    var cvSections: [(String, [CVSectionProtocol])] {
+    var sections: [(String, [CVSectionProtocol])] {
         return [("Work", work),
                 ("Education", education),
                 ("Skills", skills),

@@ -10,9 +10,6 @@ import Foundation
 
 import Foundation
 
-///this is also used in `CVViewController`
-let cvIsReadyNotification = "cv is ready"
-
 class MyCVViewModel {
     
     let api: CVFetchable
@@ -31,11 +28,10 @@ class MyCVViewModel {
                     let data = try JSONSerialization.data(withJSONObject: json, options: [])
                     let cv = try JSONDecoder().decode(MyCV.self, from: data)
                     DispatchQueue.main.async {
-                        NotificationCenter.default.post(name: Notification.Name(cvIsReadyNotification),
-                                                        object: nil,
+                        NotificationCenter.default.post(name: Notification.Name.cvNotification,
+                                                        object: cv,
                                                         userInfo: ["cv": cv])
                     }
-                    
                 } catch {
                     self?.handleError(error: error)
                 }
@@ -45,9 +41,13 @@ class MyCVViewModel {
     private func handleError(error: Error) {
         print(error.localizedDescription)
         DispatchQueue.main.async {
-            NotificationCenter.default.post(name: Notification.Name(cvIsReadyNotification),
+            NotificationCenter.default.post(name: Notification.Name.cvNotification,
                                             object: nil,
                                             userInfo: ["cv": error])
         }
     }
+}
+
+extension Notification.Name {
+    static let cvNotification = Notification.Name("CVIsReady")
 }
