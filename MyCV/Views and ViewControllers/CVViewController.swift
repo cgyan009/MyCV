@@ -14,7 +14,7 @@ class CVViewController: UIViewController {
     
     private var cvTable: UITableView?
     private var cv: MyCV?
-    private lazy var myCVViewModel = MyCVViewModel(api: BaseApi())
+    private lazy var myCVViewModel = CVViewModel(api: BaseApi())
     private var cvBasicInfoView: BasicInfoView?
     ///data source of `cvTable`
     private var cvData = [(String,[CVSectionProtocol])]()

@@ -10,7 +10,7 @@ import Foundation
 
 import Foundation
 
-class MyCVViewModel {
+class CVViewModel {
     
     let api: CVFetchable
     
