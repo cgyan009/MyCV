@@ -31,6 +31,11 @@ class CVViewController: UIViewController {
         
         myCVViewModel.decodeCV()
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
