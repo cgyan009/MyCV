@@ -21,7 +21,7 @@ class CVViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupWaitingUI()
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name.cvNotification,
                                                object: nil,
@@ -46,6 +46,7 @@ extension CVViewController {
     
     private func handleNotification(notification: Notification) {
         if let cv = notification.object as? MyCV {
+            setupUI()
             cvBasicInfoView?.cv = cv
             cvData = cv.sections
             cvTable?.reloadData()
@@ -58,10 +59,12 @@ extension CVViewController {
 
 ///setup UI
 extension CVViewController {
+    
     private func setupUI() {
         
-        view.backgroundColor = UIColor.white
-        
+        for v in view.subviews {
+            v.removeFromSuperview()
+        }
         setupBasicInfoView()
         
         cvTable = UITableView(frame: CGRect.zero, style: .plain)
@@ -90,11 +93,25 @@ extension CVViewController {
             let basicInfoView = cvBasicInfoView {
             view.addSubview(table)
             table.translatesAutoresizingMaskIntoConstraints = false
-            table.topAnchor.constraint(equalTo: basicInfoView.bottomAnchor).isActive = true
-            table.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            table.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            table.bottomAnchor.constraint(equalTo: view.safeBottomAnchor).isActive = true
+            NSLayoutConstraint.activate([
+                table.topAnchor.constraint(equalTo: basicInfoView.bottomAnchor),
+                table.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                table.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                table.bottomAnchor.constraint(equalTo: view.safeBottomAnchor),
+            ])
         }
+    }
+    
+    private func setupWaitingUI() {
+        let label = UILabel()
+        view.backgroundColor = .white
+        label.text = "fetching CV..."
+        label.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(label)
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     private func setupErrorView(error: Error?) {
