@@ -14,10 +14,6 @@ class MyCVUITests: XCTestCase {
         continueAfterFailure = false
     }
 
-    override func tearDown() {
-        
-    }
-    
     func testFetchCVSuccessfullyUI() {
      
          let app = XCUIApplication()
@@ -31,5 +27,19 @@ class MyCVUITests: XCTestCase {
          XCTAssertTrue(tablesQuery.staticTexts["Skills"].exists)
          XCTAssertTrue(tablesQuery.staticTexts["Langulages"].exists)
      }
+    
+    func testFetchCVFailedUI() {
+      
+          let app = XCUIApplication()
+          app.launch()
+          
+          XCTAssertFalse(app.staticTexts["Bill Smith"].exists)
+          let tablesQuery = app.tables
+
+          XCTAssertFalse(tablesQuery.staticTexts["Work"].exists)
+          XCTAssertFalse(tablesQuery.staticTexts["Education"].exists)
+          XCTAssertFalse(tablesQuery.staticTexts["Skills"].exists)
+          XCTAssertFalse(tablesQuery.staticTexts["Langulages"].exists)
+      }
 
 }
