@@ -18,6 +18,7 @@ class CVViewController: UIViewController {
     private var cvBasicInfoView: BasicInfoView?
     ///data source of `cvTable`
     private var cvData = [(String,[CVSectionProtocol])]()
+    private let basicCVViewHeightFactor: CGFloat = 0.2
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +85,7 @@ extension CVViewController {
         cvBasicInfoView?.topAnchor.constraint(equalTo: view.safeTopAnchor).isActive = true
         cvBasicInfoView?.leftAnchor.constraint(equalTo: view.safeLeftAnchor).isActive = true
         cvBasicInfoView?.rightAnchor.constraint(equalTo: view.safeRightAnchor).isActive = true
-        cvBasicInfoView?.heightAnchor.constraint(equalToConstant: view.bounds.height * 0.2).isActive = true
+        cvBasicInfoView?.heightAnchor.constraint(equalToConstant: view.bounds.height * basicCVViewHeightFactor).isActive = true
     }
     
     private func setupCVTable() {
