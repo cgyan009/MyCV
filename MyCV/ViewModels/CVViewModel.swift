@@ -28,9 +28,11 @@ class CVViewModel {
                     let data = try JSONSerialization.data(withJSONObject: json, options: [])
                     let cv = try JSONDecoder().decode(MyCV.self, from: data)
                     DispatchQueue.main.async {
-                        NotificationCenter.default.post(name: Notification.Name.cvNotification,
-                                                        object: cv,
-                                                        userInfo: ["cv": cv])
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: Notification.Name.cvNotification,
+                                                            object: self,
+                                                            userInfo: ["cv": cv])
+                        }
                     }
                 } catch {
                     self?.handleError(error: error)

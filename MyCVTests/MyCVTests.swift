@@ -11,10 +11,15 @@ import XCTest
 
 class MyCVTests: XCTestCase {
     
-    let mockCVApi = MockCVApi()
-    
-    func testfetchCVSuccessfully() {
-        mockFetchCV(shouldReturnError: false)
+    func testFetchCVSuccessfully() {
+        let mockCVApi = MockCVApi()
+        mockCVApi.shouldReturnError = false
+        let vm = CVViewModel(api: mockCVApi)
+        let notificationExpectation = expectation(forNotification: .cvNotification, object: vm, handler: nil)
+
+        vm.decodeCV()
+        
+        wait(for: [notificationExpectation], timeout: 1)
     }
     
     func testFetchCVWithError() {
@@ -23,6 +28,7 @@ class MyCVTests: XCTestCase {
     
     private func mockFetchCV(shouldReturnError: Bool) {
         let expectation = self.expectation(description: "Fetch CV Expectation")
+        let mockCVApi = MockCVApi()
         mockCVApi.shouldReturnError = shouldReturnError
         mockCVApi.fetchCV { (json, error) in
             XCTAssertNil(error)

@@ -24,7 +24,7 @@ class CVViewController: UIViewController {
         super.viewDidLoad()
         setupWaitingUI()
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.cvNotification,
+        NotificationCenter.default.addObserver(forName: .cvNotification,
                                                object: nil,
                                                queue: nil) {[weak self] (notification) in
                                                 self?.handleNotification(notification: notification)
@@ -46,7 +46,7 @@ class CVViewController: UIViewController {
 extension CVViewController {
     
     private func handleNotification(notification: Notification) {
-        if let cv = notification.object as? MyCV {
+        if let cv = notification.userInfo?["cv"] as? MyCV {
             setupUI()
             cvBasicInfoView.cv = cv
             cvData = cv.sections
@@ -77,7 +77,7 @@ extension CVViewController {
     }
     
     private func setupBasicInfoView() {
-    
+        
         view.addSubview(cvBasicInfoView)
         cvBasicInfoView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
