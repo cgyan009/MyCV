@@ -27,7 +27,8 @@ class BaseApi {
             do {
                 guard let jsonDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? dictionary else {
                     completion(nil, ApiError.serviceError)
-                    return }
+                    return
+                }
                 completion(jsonDictionary, nil)
             } catch {
                 completion(nil, error)

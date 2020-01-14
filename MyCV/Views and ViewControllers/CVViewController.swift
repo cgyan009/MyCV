@@ -15,7 +15,7 @@ class CVViewController: UIViewController {
     private var cvTable: UITableView?
     private var cv: MyCV?
     private lazy var myCVViewModel = CVViewModel(api: BaseApi())
-    private var cvBasicInfoView: BasicInfoView?
+    private var cvBasicInfoView = BasicInfoView(frame: CGRect.zero)
     ///data source of `cvTable`
     private var cvData = [(String,[CVSectionProtocol])]()
     private let basicCVViewHeightFactor: CGFloat = 0.2
@@ -48,7 +48,7 @@ extension CVViewController {
     private func handleNotification(notification: Notification) {
         if let cv = notification.object as? MyCV {
             setupUI()
-            cvBasicInfoView?.cv = cv
+            cvBasicInfoView.cv = cv
             cvData = cv.sections
             cvTable?.reloadData()
         } else {
@@ -77,25 +77,25 @@ extension CVViewController {
     }
     
     private func setupBasicInfoView() {
+    
+        view.addSubview(cvBasicInfoView)
+        cvBasicInfoView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cvBasicInfoView.topAnchor.constraint(equalTo: view.safeTopAnchor),
+            cvBasicInfoView.leftAnchor.constraint(equalTo: view.safeLeftAnchor),
+            cvBasicInfoView.rightAnchor.constraint(equalTo: view.safeRightAnchor),
+            cvBasicInfoView.heightAnchor.constraint(equalToConstant: view.bounds.height * basicCVViewHeightFactor)
+        ])
         
-        cvBasicInfoView = BasicInfoView(frame: CGRect.zero)
-        view.addSubview(cvBasicInfoView!)
-        
-        cvBasicInfoView?.translatesAutoresizingMaskIntoConstraints = false
-        cvBasicInfoView?.topAnchor.constraint(equalTo: view.safeTopAnchor).isActive = true
-        cvBasicInfoView?.leftAnchor.constraint(equalTo: view.safeLeftAnchor).isActive = true
-        cvBasicInfoView?.rightAnchor.constraint(equalTo: view.safeRightAnchor).isActive = true
-        cvBasicInfoView?.heightAnchor.constraint(equalToConstant: view.bounds.height * basicCVViewHeightFactor).isActive = true
     }
     
     private func setupCVTable() {
         
-        if let table = cvTable,
-            let basicInfoView = cvBasicInfoView {
+        if let table = cvTable {
             view.addSubview(table)
             table.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                table.topAnchor.constraint(equalTo: basicInfoView.bottomAnchor),
+                table.topAnchor.constraint(equalTo: cvBasicInfoView.bottomAnchor),
                 table.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 table.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 table.bottomAnchor.constraint(equalTo: view.safeBottomAnchor),
@@ -117,7 +117,7 @@ extension CVViewController {
     
     private func setupErrorView(error: Error?) {
         let unknownErrorMessage = "Unknown error"
-        cvBasicInfoView?.removeFromSuperview()
+        cvBasicInfoView.removeFromSuperview()
         cvTable?.removeFromSuperview()
         let errorLabel = UILabel()
         

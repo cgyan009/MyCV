@@ -26,7 +26,7 @@ class BasicInfoView: UIView {
             setNeedsLayout()
         }
     }
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -44,7 +44,6 @@ extension BasicInfoView {
             return
         }
         nameLabel.text = cv.basics.name
-        emailLabel.text = cv.basics.email
         websiteLabel.text = cv.basics.website
         
         if let url = URL(string: cv.basics.picture),
@@ -72,7 +71,6 @@ extension BasicInfoView {
             imageView.heightAnchor.constraint(equalToConstant: self.bounds.height)
         ])
         
-        nameLabel.text = cv.basics.name
         nameLabel.font = .systemFont(ofSize: nameFontSize)
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: distanceToImageView),
