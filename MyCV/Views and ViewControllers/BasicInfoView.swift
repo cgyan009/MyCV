@@ -20,6 +20,8 @@ class BasicInfoView: UIView {
     private let distanceToImageView: CGFloat = 12.0
     private let nameFontSize: CGFloat = 24.0
     private let contentFontSize: CGFloat = 18.0
+    private let emailString = "email"
+    private let websiteString = "website"
     
     var cv: MyCV? {
         didSet {
@@ -77,14 +79,14 @@ extension BasicInfoView {
             nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: insetConstant)
         ])
         
-        emailLabel.text = "email: \(cv.basics.email)"
+        emailLabel.text = "\(emailString): \(cv.basics.email)"
         emailLabel.font = .systemFont(ofSize: contentFontSize)
         NSLayoutConstraint.activate([
             emailLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: distanceToImageView),
             emailLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: insetConstant)
         ])
         
-        websiteLabel.text = "website: \(cv.basics.website)"
+        websiteLabel.text = "\(websiteString): \(cv.basics.website)"
         websiteLabel.font = .systemFont(ofSize: contentFontSize)
         NSLayoutConstraint.activate([
             websiteLabel.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),

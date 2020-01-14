@@ -41,10 +41,11 @@ struct Location: Decodable, CVSectionProtocol {
     let city: String
     let countryCode: String
     let region: String
+    private let addressString = "Address"
     
     func toString() -> String {
           return """
-          Address: \(address)
+          \(addressString): \(address)
           \(postalCode), \(city)
           \(region), \(countryCode)
           """
@@ -59,15 +60,18 @@ struct Work: Decodable, CVSectionProtocol {
     let endDate: String
     let summary: String
     let highlights: [String]
+    private let hightlightsString = "Highlights"
+    private let fromString = "From"
+    private let toStr = "To"
     
     func toString() -> String {
-         var highlightString = ""
+         var highlightStr = ""
          highlights.forEach { (str) in
-             highlightString += str
+             highlightStr += str
          }
          return """
-         \(company) from: \(startDate) to:  \(endDate)
-         Highlights: \(highlightString)
+         \(company) \(fromString): \(startDate) \(toStr):  \(endDate)
+         \(hightlightsString): \(highlightStr)
          \(website)
          """
      }
@@ -82,6 +86,11 @@ struct Education: Decodable, CVSectionProtocol {
     let endDate: String
     let gpa: String
     let courses: [String]
+    private let areaString = "Area"
+    private let gpaString = "GPA"
+    private let coursesString = "Courses"
+    private let fromString = "From"
+    private let toStr = "To"
     
     func toString() -> String {
           var courseString = ""
@@ -89,10 +98,10 @@ struct Education: Decodable, CVSectionProtocol {
               courseString += "\(str), "
           }
           return """
-          \(institution) from: \(startDate) to: \(endDate),
-          Area: \(area),
-          GPA: \(gpa),
-          Courses: \(courseString)
+          \(institution) \(fromString): \(startDate) \(toStr): \(endDate),
+          \(areaString): \(area),
+          \(gpaString): \(gpa),
+          \(coursesString): \(courseString)
           """
       }
 }
@@ -102,6 +111,7 @@ struct Skill: Decodable, CVSectionProtocol {
     let name: String
     let level: String
     let keywords: [String]
+    private let keywordsString = "Keywords"
     
     func toString() -> String {
           var keywordString = ""
@@ -110,7 +120,7 @@ struct Skill: Decodable, CVSectionProtocol {
           }
           return """
           \(name), \(level),
-          Keywords: \(keywordString)
+          \(keywordString): \(keywordString)
           """
       }
 }
@@ -118,8 +128,9 @@ struct Language: Decodable, CVSectionProtocol {
    
     let language: String
     let fluency: String
+    private let fluencyString = "Fluency"
     
     func toString() -> String {
-           return "\(language), Fluency: \(fluency)"
+           return "\(language), \(fluencyString): \(fluency)"
        }
 }

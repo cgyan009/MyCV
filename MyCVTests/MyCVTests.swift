@@ -22,6 +22,17 @@ class MyCVTests: XCTestCase {
         wait(for: [notificationExpectation], timeout: 1)
     }
     
+    func testWorkToString() {
+        let work = Work(company: "Google",
+                        position: "Product Manager",
+                        website: "www.google.com",
+                        startDate: "2010-02-21",
+                        endDate: "2018-07-15",
+                        summary: "Release Android",
+                        highlights: ["Lead Flutter Project"])
+        print(work.toString())
+    }
+    
     func testFetchCVWithError() {
         mockFetchCV(shouldReturnError: true)
     }
