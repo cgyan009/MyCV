@@ -15,7 +15,7 @@ class CVViewController: UIViewController {
     private var cvTable: UITableView?
     private var cv: MyCV?
     private lazy var myCVViewModel = CVViewModel(api: BaseApi())
-    private var cvBasicInfoView = BasicInfoView(frame: CGRect.zero)
+    private lazy var cvBasicInfoView = BasicInfoView(frame: CGRect.zero)
     ///data source of `cvTable`
     private var cvData = [(String,[CVSectionProtocol])]()
     private let basicCVViewHeightFactor: CGFloat = 0.2
